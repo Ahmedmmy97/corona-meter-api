@@ -1,10 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-import flask
-from flask import request, jsonify
+from flask import request, jsonify, Flask
 
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app = Flask(__name__)
 session = requests.session()
 
 r = session.get('https://www.worldometers.info/coronavirus/')
@@ -20,12 +18,12 @@ for tr in table.select('tr'):
     store.append(country)
 
 
-@app.route('/', methods=['GET'])
-def api_all():
+@app.route('/')
+def index():
     return '<h1>hello</h1>'
 
 
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/countries/all', methods=['GET'])
-def api_all():
+def index():
     return jsonify(store)
