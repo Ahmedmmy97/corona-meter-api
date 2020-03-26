@@ -25,5 +25,5 @@ def index():
 
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/countries/all', methods=['GET'])
-def index():
+def api_all():
     return jsonify(store)
