@@ -27,3 +27,5 @@ def index():
 @app.route('/api/v1/resources/countries/all', methods=['GET'])
 def api_all():
     return jsonify(store)
+
+app.run()
