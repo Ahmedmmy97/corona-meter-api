@@ -4,7 +4,7 @@ import flask
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
-session = requests.session()
+'''session = requests.session()
 
 r = session.get('https://www.worldometers.info/coronavirus/')
 soup = BeautifulSoup(r.text, 'html.parser')
@@ -17,6 +17,7 @@ for tr in table.select('tr'):
                'NewDeath': tr.select('td')[4].text.strip(), 'Recovered': tr.select('td')[5].text.strip(),
                'Active': tr.select('td')[6].text.strip(), 'Serious': tr.select('td')[7].text.strip()}
     store.append(country)
+'''
 
 
 @app.route('/')
@@ -28,6 +29,3 @@ def index():
 @app.route('/api/v1/resources/countries/all')
 def api_all():
     return jsonify(store)
-
-
-
