@@ -19,9 +19,13 @@ for tr in table.select('tr'):
                'Active': tr.select('td')[6].text.strip(), 'Serious': tr.select('td')[7].text.strip()}
     store.append(country)
 
+
+@app.route('/', methods=['GET'])
+def api_all():
+    return '<h1>hello</h1>'
+
+
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/countries/all', methods=['GET'])
 def api_all():
     return jsonify(store)
-
-app.run()
