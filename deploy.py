@@ -34,4 +34,3 @@ def api_all():
     return jsonify(scrapData())
 
 
-app.run()
